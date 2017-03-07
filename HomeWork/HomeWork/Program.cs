@@ -18,6 +18,17 @@ namespace HomeWork
     {
         static void Main(string[] args)
         {
+            int[] array = new int[20];
+            Random rnd = new Random();
+            for (int i = 0;i < 20; i++)
+            {
+                array[i] = rnd.Next(-30, 30);
+            }
+            foreach (var c in array)
+            {
+                Console.WriteLine(c);
+            }
+            Console.ReadLine();
         }
     }
 }
