@@ -18,16 +18,19 @@ namespace HomeWork
     {
         static void Main(string[] args)
         {
-            //Test
+
+            //Test(Тест)
             int[] array = new int[5] {6,2,9,-3,6};
             ArrayCount(array);
-            //
+            //Solution(Решение)
             int[] array2 = new int[20];
             ArrayFull(array2);
             ArrayCount(array2);
+            //Pause(Пауза)
             Console.ReadLine();
 
         }
+        //Метод который считает пары
         static void ArrayCount(int[] array)
         {
             int Answer = 0;
@@ -35,13 +38,9 @@ namespace HomeWork
             {
                 for (int j = i; j < i + 2; j++)
                 {
-                    if (j > array.Length) break;
-                    else
+                    if (array[j] % 3 == 0)
                     {
-                        if (array[j] % 3 == 0)
-                        {
-                            Answer++;
-                        }
+                        Answer++;
                     }
                 }
             }
@@ -51,6 +50,7 @@ namespace HomeWork
                 Console.WriteLine($"Элемент номер {c} равен: {c}");
             }
         }
+        //Метод заполняющий элементы массива
         static void ArrayFull(int[] array)
         {
             Random rnd = new Random();
