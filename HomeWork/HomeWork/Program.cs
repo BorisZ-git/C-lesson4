@@ -18,14 +18,14 @@ namespace HomeWork
     {
         static void Main(string[] args)
         {
-            int[] array = new int[20];
+            int[] array = new int[5] {6,2,9,-3,6};
             int Answer = 0;
             Random rnd = new Random();
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.Next(-10000, 10000);
-            }
-            for (int i = 0; i < array.Length; i++)
+            //for (int i = 0; i < array.Length; i++)
+            //{
+            //    array[i] = rnd.Next(-10000, 10000);
+            //}
+            for (int i = 0; i < array.Length - 2; i++)
             {
                 for (int j = i; j < i + 2; j++)
                 {
@@ -34,17 +34,18 @@ namespace HomeWork
                     {
                         if (array[j] % 3 == 0)
                         {
-                                Answer++;
+                            Answer++;
                         }
                     }
                 }
+            }
                 Console.WriteLine($"Ответ: {Answer}");
                 foreach (var c in array)
                 {
                     Console.WriteLine($"Элемент номер {c} равен: {c}");
                 }
                 Console.ReadLine();
-            }
+            
         }
     }
 }
