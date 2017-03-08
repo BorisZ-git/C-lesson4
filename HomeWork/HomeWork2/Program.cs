@@ -22,6 +22,7 @@ namespace HomeWork2
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
