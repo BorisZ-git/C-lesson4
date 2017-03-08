@@ -18,13 +18,19 @@ namespace HomeWork
     {
         static void Main(string[] args)
         {
+            //Test
             int[] array = new int[5] {6,2,9,-3,6};
+            ArrayCount(array);
+            //
+            int[] array2 = new int[20];
+            ArrayFull(array2);
+            ArrayCount(array2);
+            Console.ReadLine();
+
+        }
+        static void ArrayCount(int[] array)
+        {
             int Answer = 0;
-            Random rnd = new Random();
-            //for (int i = 0; i < array.Length; i++)
-            //{
-            //    array[i] = rnd.Next(-10000, 10000);
-            //}
             for (int i = 0; i < array.Length - 2; i++)
             {
                 for (int j = i; j < i + 2; j++)
@@ -39,13 +45,19 @@ namespace HomeWork
                     }
                 }
             }
-                Console.WriteLine($"Ответ: {Answer}");
-                foreach (var c in array)
-                {
-                    Console.WriteLine($"Элемент номер {c} равен: {c}");
-                }
-                Console.ReadLine();
-            
+            Console.WriteLine($"Ответ: {Answer}");
+            foreach (var c in array)
+            {
+                Console.WriteLine($"Элемент номер {c} равен: {c}");
+            }
+        }
+        static void ArrayFull(int[] array)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(-10000, 10000);
+            }
         }
     }
 }
