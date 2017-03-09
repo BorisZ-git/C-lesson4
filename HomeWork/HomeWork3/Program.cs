@@ -16,6 +16,13 @@ namespace HomeWork3
     {
         static void Main(string[] args)
         {
+            Properties.Resources.login;
+            Properties.Resources.password;
+            string login = Console.ReadLine();
+            string password = Console.ReadLine();
+
+
+
         }
     }
 }
