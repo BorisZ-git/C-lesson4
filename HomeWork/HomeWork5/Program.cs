@@ -26,7 +26,17 @@ namespace HomeWork5
         static void Main(string[] args)
         {
             Random rnd = new Random();
+            int UserAnswer = 0;
             Doubler doubler = new Doubler(rnd.Next(50,100));
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"Необходимо набрать:{doubler.Finish()}\t"
+                    + $"сейчас: {doubler.Current()}\t Осталось ходов: {10-i}");
+                Console.WriteLine("Выберите действия: 1.Увеличить число на один\t"+
+                    "2.Умножить на два\t3.Сбросить до одного");
+                int.TryParse(Console.ReadLine(), out UserAnswer);
+
+            }
         }
     }
 }
