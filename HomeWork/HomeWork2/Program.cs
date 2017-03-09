@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 /* Boris Z
  * 2.1 Дописать класс для работы с одномерным массивом.
  * Реализовать конструктор, создающий массив заданной размерности и 
@@ -15,6 +16,10 @@ using System.Threading.Tasks;
  * 2.2*Добавить конструктор и методы, которые загружают данные из файла и 
  * записывают данные в файл
  * */
+ /* Очень простанственно пишутся задания: Вот 2.2 Какие данные он считывать должен,
+  * какие записывать. 2.1 Sum всех элементов или выборочно по индексу?  maxCount это сколько
+  * элементов в массиве или наибольший элемент? 
+  * */
 
 namespace HomeWork2
 {
@@ -23,10 +28,12 @@ namespace HomeWork2
         class MyArray
         {
             int[] a;
+            //Конструктор с длинной массива
             public MyArray(int n)
             {
                 a = new int[n];
             }        
+            //Конструктор с длинной и записью элементов
             public MyArray(int n, int value)
             {
                 a = new int[n];
@@ -36,15 +43,17 @@ namespace HomeWork2
                     a[i] += i;
                 }
             }
+            //Получить значение элемента
             public int Get(int i)
             {
                 return a[i];
             }                        
+            //Задать значение элемента
             public void Set(int i, int value)
             {
                 a[i] = value;
             }
-            // либо создаем индексируемое свойство
+            // создаем индексируемое свойство
             public int this[int i]
             {
                 get { return a[i]; }
@@ -94,8 +103,6 @@ namespace HomeWork2
         {
             //2.1
 
-            //MyArray array = new MyArray(5);
-            //for (int i = 0; i < 5; i++) array[i] = i + 1;
             MyArray array = new MyArray(5,1);
             Console.WriteLine($"Сумма: {array.Sum()}");
             array.Multi(2);
