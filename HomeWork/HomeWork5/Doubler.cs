@@ -8,5 +8,11 @@ namespace HomeWork5
 {
     class Doubler
     {
+        int current = 1;
+        int finish;        
+        public Doubler(int finish)
+        {
+            this.finish = finish;            
+        }
     }
 }

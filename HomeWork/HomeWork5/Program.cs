@@ -25,7 +25,8 @@ namespace HomeWork5
     {
         static void Main(string[] args)
         {
-            Doubler doubler = new Doubler();
+            Random rnd = new Random();
+            Doubler doubler = new Doubler(rnd.Next(50,100));
         }
     }
 }
