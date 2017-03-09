@@ -16,10 +16,6 @@ using System.IO;
  * 2.2*Добавить конструктор и методы, которые загружают данные из файла и 
  * записывают данные в файл
  * */
- /* Очень простанственно пишутся задания: Вот 2.2 Какие данные он считывать должен,
-  * какие записывать. 2.1 Sum всех элементов или выборочно по индексу?  maxCount это сколько
-  * элементов в массиве или наибольший элемент? 
-  * */
 
 namespace HomeWork2
 {
@@ -103,6 +99,7 @@ namespace HomeWork2
             #endregion
 
             #region 2.2
+            string[] b;
             //Конструктор получающий данные из файла
             public MyArray(string filename)
             {
@@ -118,24 +115,37 @@ namespace HomeWork2
                 sr.Close();
             }
             //Конструктор записывающий массив в файл
-            public MyArray(string filename, int min, int max)
+            public MyArray(string filename,int n, int min, int max)
             {
-
+                StreamReader sr = new StreamReader(filename);
+                Random rnd = new Random();
+                b = new string[n];
+                for (int i = 0; i < n; i++)
+                {
+                    b[i] = Convert.ToString(rnd.Next(min, max));
+                }
+                sr.Close();
+                System.IO.File.WriteAllLines(filename, b);
+                
             }
-            //Добавить элемент массива в файл(увеличиваем массив)
-            public void AddElement (string filename)
+            //Контсруктор получающий данные из перезаписанного файла
+            public MyArray(string filename, int n)
             {
-
+                StreamReader sr = new StreamReader(filename);
+                a = new int[n];
+                for (int i = 0; i < n; i++)
+                {
+                    a[i] = int.Parse(sr.ReadLine());
+                }
+                sr.Close();
             }
-
-
             #endregion
         }
         static void Main(string[] args)
         {
             //2.1
 
-            MyArray array = new MyArray(5,1);
+            MyArray array = new MyArray(5, 1);
             Console.WriteLine($"Сумма: {array.Sum()}");
             array.Multi(2);
             array.Inverse();
@@ -149,7 +159,35 @@ namespace HomeWork2
             Console.WriteLine("\nМассив из файла:");
             MyArray array2 = new MyArray("data.txt");
             array2.ShowArray();
+
+            Console.WriteLine("\nМассив из перезаписанного файла:");
+            MyArray _array = new MyArray("data2.txt", 6, 1, 10);
+            MyArray array3 = new MyArray("data2.txt", CountString("data2.txt"));
+            array3.ShowArray();
+
+            array2.Multi(3);
+            array3.Multi(3);
+            Console.WriteLine();
+            array2.ShowArray();
+            Console.WriteLine();
+            array3.ShowArray();
+
+
             Console.ReadLine();
         }
+        //Метод считающий кол-во строк и передающий их как кол-во элеметов в массиве
+        public static int CountString(string filename)
+        {
+            StreamReader sr = new StreamReader(filename);
+            int count = 0;
+            while (!sr.EndOfStream)
+            {
+                sr.ReadLine();
+                count++;
+            }
+            sr.Close();
+            return count;
+        }
+
     }
 }
