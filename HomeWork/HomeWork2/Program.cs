@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /* Boris Z
- * а)Дописать класс для работы с одномерным массивом.
+ * 2.1 Дописать класс для работы с одномерным массивом.
  * Реализовать конструктор, создающий массив заданной размерности и 
  * заполняющий массив числами от начального значения с заданным шагом.
  * Создать свойство Sum, которые возвращают сумму элементов массива,
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
  * Метод Multi, умножающий каждый элемент массива на определенное число,
  * свойство MaxCount, возвращающее количество максимальных элементов.
  * В Main продемонстрировать работу класса. 
- * б)*Добавить конструктор и методы, которые загружают данные из файла и 
+ * 2.2*Добавить конструктор и методы, которые загружают данные из файла и 
  * записывают данные в файл
  * */
 
@@ -20,9 +20,67 @@ namespace HomeWork2
 {
     class Program
     {
+        class MyArray
+        {
+            int[] a;
+            public MyArray(int n)
+            {
+                a = new int[n];
+            }        
+            public MyArray(int n, int value)
+            {
+
+
+            }
+            public int Get(int i)
+            {
+                return a[i];
+            }                        
+            public void Set(int i, int value)
+            {
+                a[i] = value;
+            }
+            // либо создаем индексируемое свойство
+            public int this[int i]
+            {
+                get { return a[i]; }
+                set { a[i] = value; }
+            }
+            // возвращают сумму элементов массива
+            // Умножение на каждый элемент
+            public void Multi(int n)
+            {
+                for (int i = 0;i< a.Length; i++)
+                {
+                    a[i] *= n;
+                }
+            }
+            // Меняет знак у каждого элемента
+            public void Inverse()
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    a[i] *= -1;
+                }
+            }
+            // Показать элементы
+            public void ShowArray()
+            {
+                for (int i = 0; i<a.Length;i++)
+                {
+                    Console.WriteLine(a[i]);
+                }
+            }
+        }
         static void Main(string[] args)
         {
-
+            MyArray array = new MyArray(10);
+            for (int i = 0; i < 10; i++) array[i] = i + 1;
+            array.Multi(2);
+            array.Inverse();
+            array.ShowArray();
+            Console.ReadLine();
+            //2.1
         }
     }
 }
