@@ -26,5 +26,13 @@ namespace HomeWork5
         {
             current = 1;
         }
+        public int Finish()
+        {
+            return finish;
+        }
+        public int Current()
+        {
+            return current;
+        }
     }
 }
