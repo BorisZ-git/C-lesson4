@@ -33,6 +33,7 @@ namespace HomeWork2
                 for (int i = 0; i < a.Length; i++)
                 {
                     Set(i, value);
+                    a[i] += i;
                 }
             }
             public int Get(int i)
@@ -75,17 +76,24 @@ namespace HomeWork2
                     a[i] *= -1;
                 }
             }
+            // возвращает кол-во макс элементов
+            public int MaxCount()
+            {
+                return a.Length;
+            }
             // Показать элементы
             public void ShowArray()
             {
                 for (int i = 0; i<a.Length;i++)
                 {
-                    Console.WriteLine(a[i]);
+                    Console.WriteLine($"Элемент {i+1}: {a[i]}");
                 }
             }
         }
         static void Main(string[] args)
         {
+            //2.1
+
             //MyArray array = new MyArray(5);
             //for (int i = 0; i < 5; i++) array[i] = i + 1;
             MyArray array = new MyArray(5,1);
@@ -93,9 +101,14 @@ namespace HomeWork2
             array.Multi(2);
             array.Inverse();
             array.ShowArray();
-            
+
+            Console.WriteLine($"Кол-во элементов: {array.MaxCount()}");
+            array.Inverse();
+            array.ShowArray();
+
+            //2.2
+
             Console.ReadLine();
-            //2.1
         }
     }
 }
