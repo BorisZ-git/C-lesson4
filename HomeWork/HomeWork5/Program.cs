@@ -35,8 +35,12 @@ namespace HomeWork5
                 Console.WriteLine("Выберите действия: 1.Увеличить число на один\t"+
                     "2.Умножить на два\t3.Сбросить до одного");
                 int.TryParse(Console.ReadLine(), out UserAnswer);
+                if (UserAnswer == 1) doubler.Increase();
+                if (UserAnswer == 2) doubler.Multi();
+                if (UserAnswer == 3) doubler.Reset();
 
             }
+
         }
     }
 }
