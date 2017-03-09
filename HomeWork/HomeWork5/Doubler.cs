@@ -14,5 +14,17 @@ namespace HomeWork5
         {
             this.finish = finish;            
         }
+        public void Increase()
+        {
+            current += 1;
+        }
+        public void Multi()
+        {
+            current *= 2;
+        }
+        public void Reset()
+        {
+            current = 1;
+        }
     }
 }
