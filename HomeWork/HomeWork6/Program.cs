@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 /* Boris Z
  * ***Написать игру “Верю. Не верю”.
  *  В файле хранятся некоторые данные и правда это или нет. 
