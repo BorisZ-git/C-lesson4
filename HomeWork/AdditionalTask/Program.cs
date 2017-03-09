@@ -35,25 +35,65 @@ namespace AdditionalTask
 
             //1.2
             Random rnd = new Random();
+            Console.ForegroundColor = ConsoleColor.Red;
             do
             {
                 Console.ReadLine();
                 Console.SetCursorPosition(rnd.Next(50, 80), rnd.Next(10, 25));
                 int CursorX = Console.CursorLeft;
                 int CursorY = Console.CursorTop;
-                Thread.Sleep(500);                
-                if (CursorX >= x & CursorX <= x +10 & CursorY >= y & CursorY <= y +5)
+                Thread.Sleep(500);
+                if (CursorX >= x & CursorX <= x + 10 & CursorY >= y & CursorY <= y + 5)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    
-                    Console.SetCursorPosition(rnd.Next(10, 45), rnd.Next(0, 10));                    
+                    Console.SetCursorPosition(rnd.Next(10, 45), rnd.Next(0, 10));
                     Console.WriteLine("Курсор попал в квадрат");
+                    Thread.Sleep(500);
+                    break;
                 }
-                Console.ResetColor();
             } while (true);
+            //1.3
+            Console.Clear();
+            Console.ResetColor();
+            DrawLine(x, y, Hor);
+            DrawLine(x, y + 5, Hor);
 
+            DrawVerti(x, y);
+            DrawVerti(x + 10, y);
 
+            int aCursorX = 5;
+            int aCursorY = 2;
+            Console.SetCursorPosition(aCursorX, aCursorY);
 
+            do
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.LeftArrow)
+                    {
+                        aCursorX -= 1;
+                    }
+                    else if (key.Key == ConsoleKey.RightArrow)
+                    {
+                        aCursorX += 1;
+                    }
+                    else if (key.Key == ConsoleKey.UpArrow)
+                    {
+                        aCursorY -= 1;
+                    }
+                    else if (key.Key == ConsoleKey.DownArrow)
+                    {
+                        aCursorY += 1;
+                    }
+                    Console.SetCursorPosition(aCursorX, aCursorY);
+                }
+                if (aCursorX >= x & aCursorX <= x + 10 & aCursorY >= y & aCursorY <= y + 5)
+                {
+                    aCursorX = rnd.Next(0, 10);
+                    aCursorY = rnd.Next(0, 5); 
+                    Console.SetCursorPosition(aCursorX, aCursorY);
+                }
+            } while (true);
         }
         static void DrawLine(int x, int y, string str)
         {
