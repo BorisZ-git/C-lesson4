@@ -27,6 +27,8 @@ namespace HomeWork2
     {
         class MyArray
         {
+            #region 2.1
+
             int[] a;
             //Конструктор с длинной массива
             public MyArray(int n)
@@ -98,6 +100,36 @@ namespace HomeWork2
                     Console.WriteLine($"Элемент {i+1}: {a[i]}");
                 }
             }
+            #endregion
+
+            #region 2.2
+            //Конструктор получающий данные из файла
+            public MyArray(string filename)
+            {
+                StreamReader sr = new StreamReader("data.txt");
+                // Считываем количество элементов массива
+                int N = int.Parse(sr.ReadLine());
+                a = new int[N];
+                // Считываем массив
+                for (int i = 0; i < N; i++)
+                {
+                    a[i] = int.Parse(sr.ReadLine());
+                }
+                sr.Close();
+            }
+            //Конструктор записывающий массив в файл
+            public MyArray(string filename, int min, int max)
+            {
+
+            }
+            //Добавить элемент массива в файл(увеличиваем массив)
+            public void AddElement (string filename)
+            {
+
+            }
+
+
+            #endregion
         }
         static void Main(string[] args)
         {
