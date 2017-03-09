@@ -29,8 +29,11 @@ namespace HomeWork2
             }        
             public MyArray(int n, int value)
             {
-
-
+                a = new int[n];
+                for (int i = 0; i < a.Length; i++)
+                {
+                    Set(i, value);
+                }
             }
             public int Get(int i)
             {
@@ -47,6 +50,15 @@ namespace HomeWork2
                 set { a[i] = value; }
             }
             // возвращают сумму элементов массива
+            public int Sum()
+            {
+                int sum = 0;
+                for (int i = 0; i < a.Length; i++)
+                {
+                    sum += a[i];
+                }
+                return sum;
+            }
             // Умножение на каждый элемент
             public void Multi(int n)
             {
@@ -74,11 +86,14 @@ namespace HomeWork2
         }
         static void Main(string[] args)
         {
-            MyArray array = new MyArray(10);
-            for (int i = 0; i < 10; i++) array[i] = i + 1;
+            //MyArray array = new MyArray(5);
+            //for (int i = 0; i < 5; i++) array[i] = i + 1;
+            MyArray array = new MyArray(5,1);
+            Console.WriteLine($"Сумма: {array.Sum()}");
             array.Multi(2);
             array.Inverse();
             array.ShowArray();
+            
             Console.ReadLine();
             //2.1
         }
