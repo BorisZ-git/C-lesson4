@@ -106,7 +106,7 @@ namespace HomeWork2
             //Конструктор получающий данные из файла
             public MyArray(string filename)
             {
-                StreamReader sr = new StreamReader("data.txt");
+                StreamReader sr = new StreamReader(filename);
                 // Считываем количество элементов массива
                 int N = int.Parse(sr.ReadLine());
                 a = new int[N];
@@ -146,7 +146,9 @@ namespace HomeWork2
             array.ShowArray();
 
             //2.2
-
+            Console.WriteLine("\nМассив из файла:");
+            MyArray array2 = new MyArray("data.txt");
+            array2.ShowArray();
             Console.ReadLine();
         }
     }
