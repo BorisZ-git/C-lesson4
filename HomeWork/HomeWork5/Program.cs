@@ -25,6 +25,7 @@ namespace HomeWork5
     {
         static void Main(string[] args)
         {
+            Doubler doubler = new Doubler();
         }
     }
 }
